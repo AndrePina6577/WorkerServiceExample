@@ -1,20 +1,18 @@
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace WorkerServiceExample
 {
-    public class Worker : IHostedService
+    public class WorkerDefault : IHostedService
     {
-        private readonly ILogger<Worker> _logger;
+        private readonly ILogger<WorkerDefault> _logger;
         private Task task;
         private readonly CancellationTokenSource tokenSource = new CancellationTokenSource();
 
-        public Worker(ILogger<Worker> logger)
+        public WorkerDefault(ILogger<WorkerDefault> logger)
         {
             _logger = logger;
         }

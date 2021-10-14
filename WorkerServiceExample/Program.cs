@@ -1,9 +1,6 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using WorkerServiceExample.Services;
 
 namespace WorkerServiceExample
 {
@@ -18,7 +15,8 @@ namespace WorkerServiceExample
             Host.CreateDefaultBuilder(args)
                 .ConfigureServices((hostContext, services) =>
                 {
-                    services.AddHostedService<Worker>();
+                    services.AddSingleton<IWorker, Worker>();
+                    services.AddHostedService<WorkerHostedService>();
                 });
     }
 }
